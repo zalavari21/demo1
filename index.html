@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>PWA + SQLite demo</title>
+
+  <!-- SQL.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<h2>Ügyfél nyilvántartás</h2>
+
+<input id="nev" placeholder="Név">
+<input id="cim" placeholder="Cím">
+<button onclick="ujUgyfel()">Mentés</button>
+
+<hr>
+<div id="lista"></div>
+
+<script src="db.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
