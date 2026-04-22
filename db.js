@@ -1,6 +1,7 @@
 let db;
 
 async function initDB() {
+/*localStorage.removeItem("adatbazis");*/
   const SQL = await initSqlJs({
     locateFile: file => 
       `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/${file}`
@@ -13,12 +14,21 @@ async function initDB() {
   } else {
     db = new SQL.Database();
     db.run(`
-      CREATE TABLE ugyfelek (
+      CREATE TABLE logok (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nev TEXT,
-        cim TEXT,
-        modositva INTEGER,
-        sync INTEGER
+        szoveg TEXT,
+        modositva TEXT
+      );
+	 CREATE TABLE alap (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        hely TEXT,
+		koduhf TEXT,
+		kodnfc TEXT,
+		kodrsz TEXT,
+		nev TEXT,
+		rsz TEXT,
+		idopont TEXT,
+		feladva TEXT
       );
     `);
     saveDB();
