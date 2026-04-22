@@ -29,7 +29,7 @@ document.getElementById("szoveg").focus();
 } 
 
 function loguritk() {
-db.run("DELETE FROM éogok");
+db.run("DELETE FROM logok");
 saveDB();
 
 }
