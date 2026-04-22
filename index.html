@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <META NAME="Generator" CONTENT="EditPlus">
+  <META NAME="Author" CONTENT="">
+  <META NAME="Keywords" CONTENT="">
+  <META NAME="Description" CONTENT="">
+ </HEAD>
+
+ <BODY>
+  <!DOCTYPE html>
 <html lang="hu">
 <head>
   <meta charset="UTF-8">
@@ -11,16 +22,41 @@
 </head>
 <body>
 
-<h2>Ügyfél nyilvántartás</h2>
+<h2></h2>
 
-<input id="nev" placeholder="Név">
-<input id="cim" placeholder="Cím">
-<button onclick="ujUgyfel()">Mentés</button>
+<!-- <input id="nev" placeholder="Név"> -->
+<script>
+/*
+  const input = document.getElementById("nev");
+
+  input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      ujUgyfel();
+    }
+  });
+  */
+</script>
+  <button onclick="ujtablak()">Táblák létrehozása</button><BR><BR>
+  <button onclick="tablakdel()">DB törlése</button><BR><BR>
+  <button onclick="alapurit()">Alap ürítése</button><BR><BR>
+  <button onclick="loguritk()">LOG ürítése</button><BR><BR>
+  <button onclick="alapnetrol()">Alap netről</button><BR><BR>
+  <button onclick="alappenrol()">Alap penről</button><BR><BR>
+  <button onclick="ujtablak()">Alap netre</button><BR><BR>
+  <button onclick="ujtablak()">Alap penre</button><BR><BR>
+
+
+  <script>document.getElementById("nev").focus();</script>
 
 <hr>
 <div id="lista"></div>
-
+<script>document.getElementById("nev").focus();</script>
+<!-- <script src="dba.js"></script> -->
 <script src="db.js"></script>
 <script src="app.js"></script>
+
+<script>document.getElementById("nev").focus();</script>
 </body>
 </html>
+ </BODY>
+</HTML>
