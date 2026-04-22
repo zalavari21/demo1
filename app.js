@@ -31,6 +31,7 @@ document.getElementById("szoveg").focus();
 function loguritk() {
 db.run("DELETE FROM logok");
 saveDB();
+listaFrissit();
 
 }
 
