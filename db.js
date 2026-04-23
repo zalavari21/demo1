@@ -19,17 +19,7 @@ async function initDB() {
         szoveg TEXT,
         modositva TEXT
       );
-	 CREATE TABLE alap (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        hely TEXT,
-		koduhf TEXT,
-		kodnfc TEXT,
-		kodrsz TEXT,
-		nev TEXT,
-		rsz TEXT,
-		idopont TEXT,
-		feladva TEXT
-      );
+	
     `);
     saveDB();
   }
