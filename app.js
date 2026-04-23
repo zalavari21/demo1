@@ -3,7 +3,7 @@ app.js
 initDB().then(() => listaFrissit()); 
 
 function ujUgyfel() { 
-
+alert("ugyfelben");
 let szoveg = document.getElementById("szoveg").value; 
 
  let d = new Date(Date.now());
@@ -34,7 +34,7 @@ saveDB();
 }
 
 function listaFrissit() { 
-
+alert("listaban");
 let res = db.exec("SELECT * FROM logok ORDER BY id DESC limit 5"); 
 
 let html = ""; 
