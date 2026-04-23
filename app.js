@@ -18,10 +18,10 @@ let szoveg = document.getElementById("szoveg").value;
 const datum = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
 
 db.run( 
-alert("date 0");
+alert("date0");
 "INSERT INTO logok (szoveg, modositva) VALUES (?, ?)", 
 [szoveg, datum] ); 
-alert(datum + "date 1");
+alert(datum);
 saveDB(); 
 listaFrissit(); 
 document.getElementById("szoveg").value = '';
