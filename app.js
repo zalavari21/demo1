@@ -15,7 +15,7 @@ let szoveg = document.getElementById("szoveg").value;
   const seconds = String(d.getSeconds()).padStart(2, '0');
 
 const datum = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
-
+alert(datum + "DAT");
 
 db.run( 
 "INSERT INTO logok (szoveg, modositva) VALUES (?, ?)", 
