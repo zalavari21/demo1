@@ -20,7 +20,7 @@ const datum = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':'
 db.run( 
 "INSERT INTO logok (szoveg, modositva) VALUES (?, ?)", 
 [szoveg, datum] ); 
-
+alert(datum + "date");
 saveDB(); 
 listaFrissit(); 
 document.getElementById("szoveg").value = '';
