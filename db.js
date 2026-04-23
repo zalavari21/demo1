@@ -2,6 +2,7 @@ let db = null;
 
 async function initDB() {
   const SQL = await initSqlJs({
+    localStorage.removeItem("adatbazis");
     locateFile: file =>
       `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/${file}`
   });
