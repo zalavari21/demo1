@@ -29,8 +29,10 @@ document.getElementById("szoveg").focus();
 } 
 
 function loguritk() {
+	alert("uritben");
 db.run("DELETE FROM logok");
 saveDB();
+	alert("saveutan");
 listaFrissit();
 
 }
