@@ -16,13 +16,14 @@ let szoveg = document.getElementById("szoveg").value;
   const seconds = String(d.getSeconds()).padStart(2, '0');
 
 const datum = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
-
-db.run( 
 alert("date0");
+db.run( 
+alert("date1");
 "INSERT INTO logok (szoveg, modositva) VALUES (?, ?)", 
 [szoveg, datum] ); 
-alert(datum);
+
 saveDB(); 
+	alert("date2");
 listaFrissit(); 
 document.getElementById("szoveg").value = '';
 document.getElementById("szoveg").focus();
