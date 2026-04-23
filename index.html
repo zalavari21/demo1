@@ -1,15 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
- <HEAD>
-  <TITLE> New Document </TITLE>
-  <META NAME="Generator" CONTENT="EditPlus">
-  <META NAME="Author" CONTENT="">
-  <META NAME="Keywords" CONTENT="">
-  <META NAME="Description" CONTENT="">
- </HEAD>
-
- <BODY>
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="hu">
 <head>
   <meta charset="UTF-8">
@@ -19,15 +8,138 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
 
-<h2></h2>
+  <style>
 
-<input id="szoveg" placeholder="Szöveg"><BR>&nbsp;&nbsp;<button onclick="ujUgyfel()">KÜLDÉS</button>
+.gomb {
+    background-color: green;
+	width: 80px;
+	height: 50px;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.gombk {
+    background-color: red;
+	width: 120px;
+	height: 50px;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.gombt {
+    background-color: #00CCFF;
+	width: 80px;
+	height: 35px;
+    border: none;
+    color: white;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.gomb0 {
+    background-color: green;
+	width: 120px;
+	height: 50px;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+</style>
 
 <script>
 
+  function betu1(szam)
+{
+var x;
+x = szam;
+//alert(szam + " F1");
+//alert(document.formb.x.value);
+	if (szam == 'g0')
+	{
+		  //alert("F1 G0-ban");
+		  //f1g0 = document.form1.g0.value;
+		  //alert(f1g0 + " f1g0x");
+		  document.getElementById("szoveg").value = document.getElementById("szoveg").value + document.getElementById("g0").value; 
+	}
+	if (szam == 'g1')
+	{
+		  document.getElementById("szoveg").value = document.getElementById("szoveg").value + document.getElementById("g1").value; 
+	}
+
+	if (szam == 'g2')
+	{
+		  document.getElementById("szoveg").value = document.getElementById("szoveg").value + document.getElementById("g2").value;
+	}
+	if (szam == 'g3')
+	{
+		  document.getElementById("szoveg").value = document.getElementById("szoveg").value + document.getElementById("g3").value; 
+	}
+	if (szam == 'g4')
+	{
+		  document.getElementById("szoveg").value = document.getElementById("szoveg").value + document.getElementById("g4").value; 
+	}
+	if (szam == 'g5')
+	{
+		  document.getElementById("szoveg").value = document.getElementById("szoveg").value + document.getElementById("g5").value;
+	}
+	if (szam == 'g6')
+	{
+		  document.getElementById("szoveg").value = document.getElementById("szoveg").value + document.getElementById("g6").value; 
+	}
+	if (szam == 'g7')
+	{
+		  document.getElementById("szoveg").value = document.getElementById("szoveg").value + document.getElementById("g7").value; 
+	}
+	if (szam == 'g8')
+	{
+		  document.getElementById("szoveg").value = document.getElementById("szoveg").value + document.getElementById("g8").value; 
+	}
+	if (szam == 'g9')
+	{
+		  document.getElementById("szoveg").value = document.getElementById("szoveg").value + document.getElementById("g9").value;
+	}
+    document.getElementById("szoveg").focus();
+}
+
+
+      </script>
+
+
+</head>
+<body>
+
+<h2>Kód beolvasás alap</h2>
+
+<input type="text" inputmode="none" id="szoveg" name="szoveg" placeholder="Szöveg">
+	<script>
   const input = document.getElementById("szoveg");
 
   input.addEventListener("keydown", function(event) {
@@ -35,18 +147,41 @@
       ujUgyfel();
     }
   });
- 
 </script>
-  <button onclick="ujtablak()">Táblák létrehozása</button><BR><BR>
-  <button onclick="tablakdel()">DB törlése</button><BR><BR>
-  <button onclick="alapurit()">Alap ürítése</button><BR><BR>
-  <button onclick="loguritk()">LOG ürítése</button><BR><BR>
-  <button onclick="alapnetrol()">Alap netről</button><BR><BR>
-  <button onclick="alappenrol()">Alap penről</button><BR><BR>
-  <button onclick="ujtablak()">Alap netre</button><BR><BR>
-  <button onclick="ujtablak()">Alap penre</button><BR><BR>
+<button onclick="ujUgyfel()">Mentés</button><BR>
+<button onclick="logurit()">LOG ürítése</button><BR><BR>
+	
+	<br>
+<input type="button" class="gomb" id="g1" name ="g1" value="1" onclick="betu1('g1')">
+  <input type="button" class="gomb" id="g2" name ="g2" value="2" onclick="betu1('g2')">
+  <input type="button" class="gomb" id="g3" name ="g3" value="3" onclick="betu1('g3')"><BR>
+  <input type="button" class="gomb" id="g4" name ="g4" value="4" onclick="betu1('g4')">
+  <input type="button" class="gomb" id="g5" name ="g5" value="5" onclick="betu1('g5')">
+  <input type="button" class="gomb" id="g6" name ="g6" value="6" onclick="betu1('g6')"><BR>
+  <input type="button" class="gomb" id="g7" name ="g7" value="7" onclick="betu1('g7')">
+  <input type="button" class="gomb" id="g8" name ="g8" value="8" onclick="betu1('g8')">
+  <input type="button" class="gomb" id="g9" name ="g9" value="9" onclick="betu1('g9')"><BR>
+  <input type="button" class="gomb0" id="g0" name ="g0" value="0" onclick="betu1('g0')">&nbsp;&nbsp;<button class="gombk" onclick="ujUgyfel()">KÜLDÉS</button>
+	<script>
+  const input = document.getElementById("szoveg");
 
+  input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      ujUgyfel();
+    }
+  });
+</script>
+  <br>
+<script>
+  const input = document.getElementById("szoveg");
 
+  input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      ujUgyfel();
+    }
+  });
+</script>
+  
   <script>document.getElementById("szoveg").focus();</script>
 
 <hr>
@@ -59,5 +194,3 @@
 <script>document.getElementById("szoveg").focus();</script>
 </body>
 </html>
- </BODY>
-</HTML>
