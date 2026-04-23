@@ -19,7 +19,7 @@ const datum = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':'
 alert(datum);
 db.run( 
 
-"INSERT INTO logok (szoveg, modositva) VALUES (?, ?)", 
+"INSERT INTO logokx (szoveg, modositva) VALUES (?, ?)", 
 [szoveg, datum] ); 
 
 saveDB(); 
@@ -30,13 +30,13 @@ document.getElementById("szoveg").focus();
 } 
 
 function logurit() {
-db.run("DELETE FROM logok");
+db.run("DELETE FROM logokx");
 saveDB();
 }
 
 function listaFrissit() { 
 alert("listaban");
-let res = db.exec("SELECT * FROM logok ORDER BY id DESC limit 5"); 
+let res = db.exec("SELECT * FROM logokx ORDER BY id DESC limit 5"); 
 
 let html = ""; 
 if (res.length > 0) { 
