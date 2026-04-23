@@ -49,6 +49,7 @@ if (res.length > 0) {
 		
 		} 
 		
+		let html = "loguritbol";	
 		document.getElementById("lista").innerHTML = html; 
 	    document.getElementById("szoveg").focus();
 		
