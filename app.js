@@ -5,7 +5,7 @@ initDB().then(() => listaFrissit());
 function ujUgyfel() { 
 alert("ugyfelben");
 let szoveg = document.getElementById("szoveg").value; 
-alert("szoveg");
+alert(szoveg);
  let d = new Date(Date.now());
   const year = d.getFullYear();
   const month = String(d.getMonth() + 1).padStart(2, '0'); 
@@ -16,7 +16,7 @@ alert("szoveg");
   const seconds = String(d.getSeconds()).padStart(2, '0');
 
 const datum = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
-
+alert(datum);
 db.run( 
 
 "INSERT INTO logok (szoveg, modositva) VALUES (?, ?)", 
