@@ -14,7 +14,7 @@ async function initDB() {
   } else {
     db = new SQL.Database();
     db.run(`
-      CREATE TABLE logok (
+      CREATE TABLE logokx (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         szoveg TEXT,
         modositva TEXT
