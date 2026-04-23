@@ -2,8 +2,8 @@ initDB().then(() => listaFrissit());
 
 function ujUgyfel() { 
 
-//let szoveg = document.getElementById("szoveg").value;
-let szoveg = "szoveg"; 
+let szoveg = document.getElementById("szoveg").value;
+//let szoveg = "szoveg"; 
 
  let d = new Date(Date.now());
   const year = d.getFullYear();
