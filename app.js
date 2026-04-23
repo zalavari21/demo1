@@ -1,54 +1,110 @@
-app.js
+let input, listaDiv, mentesBtn, torlesBtn;
 
-initDB().then(() => listaFrissit()); 
+document.addEventListener("DOMContentLoaded", async () => {
 
-function ujUgyfel() { 
-alert("ugyfelben");
-let szoveg = document.getElementById("szoveg").value; 
-alert(szoveg);
- let d = new Date(Date.now());
-  const year = d.getFullYear();
-  const month = String(d.getMonth() + 1).padStart(2, '0'); 
-  const day = String(d.getDate()).padStart(2, '0');
-  
-  const hours = String(d.getHours()).padStart(2, '0');
-  const minutes = String(d.getMinutes()).padStart(2, '0');
-  const seconds = String(d.getSeconds()).padStart(2, '0');
+  input = document.getElementById("szoveg");
+  listaDiv = document.getElementById("lista");
+  mentesBtn = document.getElementById("mentesBtn");
+  torlesBtn = document.getElementById("torlesBtn");
 
-const datum = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
-alert(datum);
-db.run( 
+  try {
+    await initDB();
+    mentesBtn.disabled = false;
+    listaFrissit();
+  } catch (e) {
+    alert("DB hiba: " + e.message);
+  }
 
-"INSERT INTO logokx (szoveg, modositva) VALUES (?, ?)", 
-[szoveg, datum] ); 
+  // események
+  mentesBtn.addEventListener("click", ujUgyfel);
+  torlesBtn.addEventListener("click", logTorles);
 
-saveDB(); 
-listaFrissit(); 
-document.getElementById("szoveg").value = '';
-document.getElementById("szoveg").focus();
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      ujUgyfel();
+    }
+  });
 
-} 
+  input.focus();
+});
 
-function logurit() {
-db.run("DELETE FROM logokx");
-saveDB();
+
+// =========================
+
+function ujUgyfel() {
+  const szoveg = input.value.trim();
+
+  if (!szoveg) return;
+
+  const d = new Date();
+  const datum =
+    d.getFullYear() + "-" +
+    String(d.getMonth() + 1).padStart(2, "0") + "-" +
+    String(d.getDate()).padStart(2, "0") + " " +
+    String(d.getHours()).padStart(2, "0") + ":" +
+    String(d.getMinutes()).padStart(2, "0") + ":" +
+    String(d.getSeconds()).padStart(2, "0");
+
+  try {
+    db.run(
+      "INSERT INTO logokx (szoveg, modositva) VALUES (?, ?)",
+      [szoveg, datum]
+    );
+
+    saveDB();
+    listaFrissit();
+
+  } catch (e) {
+    alert("Mentési hiba: " + e.message);
+  }
+
+  input.value = "";
+  input.focus();
 }
 
-function listaFrissit() { 
-alert("listaban");
-let res = db.exec("SELECT * FROM logokx ORDER BY id DESC limit 5"); 
 
-let html = ""; 
-if (res.length > 0) { 
-	for (let row of res[0].values) { 
-	  html += `<div> 
-	    <b>${row[1]}</b> – ${row[2]} </div>`; 
-		
-		} 
-		
-		} 
-		
-		document.getElementById("lista").innerHTML = html; 
-	    document.getElementById("szoveg").focus();
-		
-		} 
+// =========================
+
+function listaFrissit() {
+
+  try {
+    const res = db.exec("SELECT * FROM logokx ORDER BY id DESC LIMIT 5");
+
+    if (!res.length) {
+      listaDiv.innerHTML = "<i>Nincs adat</i>";
+      return;
+    }
+
+    let html = "";
+
+    for (const row of res[0].values) {
+      html += `
+        <div>
+          <b>${row[1]}</b><br>
+          <small>${row[2]}</small>
+        </div>
+        <hr>
+      `;
+    }
+
+    listaDiv.innerHTML = html;
+
+  } catch (e) {
+    alert("Lista hiba: " + e.message);
+  }
+}
+
+
+// =========================
+
+function logTorles() {
+  if (!confirm("Biztos törlöd?")) return;
+
+  try {
+    db.run("DELETE FROM logokx");
+    saveDB();
+    listaFrissit();
+  } catch (e) {
+    alert("Törlés hiba: " + e.message);
+  }
+}
