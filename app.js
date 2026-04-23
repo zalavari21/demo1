@@ -1,9 +1,10 @@
+app.js
+
 initDB().then(() => listaFrissit()); 
 
 function ujUgyfel() { 
-alert("ITT 1");
-let szoveg = document.getElementById("szoveg").value;
- 
+
+let szoveg = document.getElementById("szoveg").value; 
 
  let d = new Date(Date.now());
   const year = d.getFullYear();
@@ -15,7 +16,7 @@ let szoveg = document.getElementById("szoveg").value;
   const seconds = String(d.getSeconds()).padStart(2, '0');
 
 const datum = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
-alert("ITT 2");
+
 
 db.run( 
 "INSERT INTO logok (szoveg, modositva) VALUES (?, ?)", 
@@ -28,13 +29,9 @@ document.getElementById("szoveg").focus();
 
 } 
 
-function loguritk() {
-	alert("uritben");
+function logurit() {
 db.run("DELETE FROM logok");
 saveDB();
-	alert("saveutan");
-listaFrissit();
-
 }
 
 function listaFrissit() { 
@@ -51,7 +48,6 @@ if (res.length > 0) {
 		
 		} 
 		
-		let html = "loguritbol";	
 		document.getElementById("lista").innerHTML = html; 
 	    document.getElementById("szoveg").focus();
 		
